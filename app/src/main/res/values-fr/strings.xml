@@ -1,8 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Projet Final CST2335</string>
     <string name="sunrise_and_sunset_lookup">Recherche du lever et du coucher du soleil</string>
     <string name="recipe_search">Recherche de recettes</string>
     <string name="dictionary">Dictionnaire</string>
     <string name="deezer_song_search">Recherche de chansons Deezer</string>
+    <string name="lookup">Recherche</string>
+    <string name="help">Besoin d\'aide</string>
+    <string name="show_locations">Afficher les endroits favoris</string>
+    <string name="hide_locations">Masquer les endroits favoris</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="add_to_favorites">Ajouter aux Favoris</string>
+    <string name="sunrise_sunset_help_message">Cette application exploite SunriseSunset.io qui propose une API gratuite pour récupérer les heures de lever et de coucher du soleil pour une longitude et une latitude spécifiques.\n\nSaisissez les coordonnées et cliquez sur le bouton Rechercher pour commencer !</string>
+    <string name="sunrise_sunset_help_title">Usage</string>
+    <string name="sunrise_sunset_confirm_message">Voulez-vous supprimer cet endroit ?</string>
+    <string name="sunrise_sunset_deletion_confirmation">Vous avez supprimé le lieu #</string>
+    <string name="undo">Annuler</string>
+    <string name="question">Question:</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="ok">OK</string>
+    <string name="api_error">Cela n\'a pas fonctionné !</string>
+    <string name="sunrise">Lever du soleil</string>
+    <string name="sunset">Coucher de soleil</string>
 </resources>
