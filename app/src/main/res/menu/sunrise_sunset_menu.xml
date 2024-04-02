@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sunrise_sunset_help"
+        android:icon="@drawable/help"
+        android:title="@string/help"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sunrise_sunset_locations"
+        android:icon="@drawable/location"
+        android:title="@string/show_locations"
+        app:showAsAction="never" />
+</menu>
