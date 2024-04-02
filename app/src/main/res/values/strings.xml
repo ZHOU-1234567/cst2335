@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CST2335 Final Project</string>
+    <string name="sunrise_and_sunset_lookup">Sunrise and Sunset Lookup</string>
+    <string name="recipe_search">Recipe Search</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="deezer_song_search">Deezer Song Search</string>
+</resources>

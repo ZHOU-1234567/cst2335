@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cst2335" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#2196F3</item>
+
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimaryDark">#3F51B5</item>
+    </style>
+
+    <style name="Theme.Cst2335" parent="Base.Theme.Cst2335" />
+</resources>
