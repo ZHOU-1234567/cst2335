@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 /**
- * Represents a geographical location with latitude and longitude coordinates.
+ * Represents a geographical location with latitude and longitude .
  */
 @Entity
 public class Location {
@@ -19,7 +19,7 @@ public class Location {
     @ColumnInfo(name = "id")
     public long id;
     /**
-     * Retrieves the latitude coordinate of the location.
+     * Get the latitude coordinate of the location.
      *
      * @return The latitude coordinate.
      */
@@ -27,7 +27,7 @@ public class Location {
         return latitude;
     }
     /**
-     * Retrieves the longitude coordinate of the location.
+     * Get the longitude coordinate of the location.
      *
      * @return The longitude coordinate.
      */

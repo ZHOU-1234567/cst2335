@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface LocationDAO {
     /**
-     * Inserts a new Location entity into the database.
+     * Inserts a new Location into the database.
      *
      * @param l The Location object to insert.
      * @return The ID of the inserted Location entity.
@@ -20,14 +20,14 @@ public interface LocationDAO {
     @Insert
     long insertLocation(Location l);
     /**
-     * Retrieves all Location entities from the database.
+     * Retrieves all Location from the database.
      *
      * @return A list containing all Location entities.
      */
     @Query("SELECT * FROM Location")
     List<Location> getAllLocations();
     /**
-     * Deletes a Location entity from the database.
+     * Deletes a Location from the database.
      *
      * @param l The Location object to delete.
      */
