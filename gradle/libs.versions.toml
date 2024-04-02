@@ -1,5 +1,6 @@
 [versions]
 agp = "8.2.1"
+coil = "2.3.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
@@ -7,11 +8,15 @@ appcompat = "1.6.1"
 material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+picass = "2.8"
+picasso = "2.5.2"
+picassoVersion = "2.8"
 recyclerview = "1.3.2"
 roomCommon = "2.6.1"
 volley = "1.2.1"
 
 [libraries]
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -19,6 +24,9 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+picass = { module = "com.squareup.picasso:picass", version.ref = "picass" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+picasso-v28 = { module = "com.squareup.picasso:picasso", version.ref = "picassoVersion" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 room-common = { module = "androidx.room:room-common", version.ref = "roomCommon" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCommon" }

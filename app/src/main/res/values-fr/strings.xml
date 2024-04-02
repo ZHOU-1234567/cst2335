@@ -23,4 +23,13 @@
     <string name="api_error">Cela n\'a pas fonctionné !</string>
     <string name="sunrise">Lever du soleil</string>
     <string name="sunset">Coucher de soleil</string>
+    <string name="deezer_help_message">Cette application exploite api.deezer.com qui propose une API gratuite pour récupérer les chansons d\'un artiste spécifique.\n\nSaisissez le nom de l\'artiste et cliquez sur le bouton Rechercher pour commencer !</string>
+    <string name="deezer_help_title">Usage</string>
+    <string name="save">Sauvegarder</string>
+    <string name="delete">Supprimer</string>
+    <string name="search">Recherche</string>
+    <string name="show_favorite_songs">Afficher les chansons préférées</string>
+    <string name="deezer_confirm_message">Voulez-vous supprimer cette chanson ?</string>
+    <string name="deezer_deletion_confirmation">Vous avez supprimé la chanson </string>
+    <string name="saved_successfully">Enregistré avec succès !</string>
 </resources>
