@@ -88,6 +88,7 @@ public class DictionaryActivity extends AppCompatActivity {
         // Add a request (in this example, called stringRequest) to your RequestQueue.
         VolleySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
     }
+
     /**
      * Initializes the activity. This method sets up the user interface for searching word definitions,
      * displaying search results, and showing saved terms.
@@ -222,6 +223,7 @@ public class DictionaryActivity extends AppCompatActivity {
         myllm.setStackFromEnd(true);
         binding.definitionsRecyclerView.setLayoutManager(myllm);
     }
+
     /**
      * Initializes the contents of the Activity's standard options menu.
      *
@@ -241,6 +243,7 @@ public class DictionaryActivity extends AppCompatActivity {
         }
         return true;
     }
+
     /**
      * This hook is called whenever an item in the options menu is selected.
      *
@@ -266,6 +269,7 @@ public class DictionaryActivity extends AppCompatActivity {
         }
         return true;
     }
+
     /**
      * Called when the activity is going into the background, but has not (yet) been killed.
      */
@@ -277,6 +281,16 @@ public class DictionaryActivity extends AppCompatActivity {
         editor.putString("Term", binding.searchTermInput.getText().toString());
         editor.apply();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences prefs = getSharedPreferences("DictionaryData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("Term", binding.searchTermInput.getText().toString());
+        editor.apply();
+    }
+
     /**
      * ViewHolder class for displaying each definition in the RecyclerView.
      */
@@ -288,6 +302,7 @@ public class DictionaryActivity extends AppCompatActivity {
             definitionText = itemView.findViewById(R.id.definitionText);
         }
     }
+
     /**
      * ViewHolder class for displaying each saved term in the RecyclerView.
      */
