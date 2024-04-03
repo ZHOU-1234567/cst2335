@@ -1,5 +1,6 @@
 package com.algonquin.cst2335;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -36,13 +37,25 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Activity for searching and displaying songs from Deezer's API.
+ * It allows users to search for an artist and displays a list of songs related to that artist.
+ * Users can view detailed information about each song by clicking on it.
+ * The activity also provides options for viewing favorite songs and getting help.
+ */
 public class DeezerSongSearchActivity extends AppCompatActivity {
     private ActivityDeezerSongSearchBinding binding;
     private String tracklistURL;
     private ArrayList<Song> songs;
     private RecyclerView.Adapter<DeezerSongSearchActivity.MyRowHolder> myAdapter;
     private static final String apiUrlBase = "https://api.deezer.com/search/artist/";
+// Fields, constructors, methods documentation goes here
 
+    /**
+     * Retrieves the tracklist URL for the specified artist using Deezer's API.
+     * @param artist The artist's name for which the tracklist URL is requested.
+     * @param callBack The callback to execute after successfully retrieving the tracklist URL.
+     */
     protected void getTracklistURL(String artist, final VolleyCallBack callBack) {
         // Build the API query URL with parameters
         Uri.Builder builder = Uri.parse(apiUrlBase).buildUpon();
@@ -64,7 +77,10 @@ public class DeezerSongSearchActivity extends AppCompatActivity {
         // Add a request (in this example, called stringRequest) to your RequestQueue.
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
-
+    /**
+     * Fetches songs from the provided URL and updates the list of songs.
+     * @param url The API URL from which to retrieve song data.
+     */
     protected void getSongs(String url) {
         // Request a string response from the provided URL.
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
@@ -158,6 +174,9 @@ public class DeezerSongSearchActivity extends AppCompatActivity {
         binding.songRecyclerView.setLayoutManager(llm);
     }
 
+    /**
+     * @param menu The options menu in which you place your items.
+     */
     @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -204,10 +223,17 @@ public class DeezerSongSearchActivity extends AppCompatActivity {
         editor.putString("Artist", binding.artistInputText.getText().toString());
         editor.apply();
     }
-
+    /**
+     * ViewHolder class for RecyclerView items.
+     * Holds references to the song TextView in each RecyclerView item.
+     */
     static class MyRowHolder extends RecyclerView.ViewHolder {
         TextView songTextView;
 
+        /**
+         * Constructor for MyRowHolder.
+         * @param itemView The view of the RecyclerView item.
+         */
         public MyRowHolder(@NonNull View itemView) {
             super(itemView);
             songTextView = itemView.findViewById(R.id.songTextView);

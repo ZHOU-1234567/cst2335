@@ -37,6 +37,12 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * This activity provides a user interface to search for word definitions using an API.
+ * It displays search results and allows users to save terms for later reference.
+ * The activity includes a search feature, display of search results, and a list of saved terms.
+ */
+
 public class DictionaryActivity extends AppCompatActivity {
     private ActivityDictionaryBinding binding;
     private ArrayList<TermDefinition> myDefinitions;
@@ -47,6 +53,12 @@ public class DictionaryActivity extends AppCompatActivity {
 
     private static final String apiUrlBase = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
+    /**
+     * Updates the search results for the given term by making an API call.
+     * The method handles the API response and populates the list of definitions.
+     *
+     * @param term The search term for which definitions are requested.
+     */
     protected void updateSearchResult(String term) {
         // Build the API query URL with parameters
         Uri.Builder builder = Uri.parse(apiUrlBase).buildUpon();
@@ -76,7 +88,13 @@ public class DictionaryActivity extends AppCompatActivity {
         // Add a request (in this example, called stringRequest) to your RequestQueue.
         VolleySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
     }
-
+    /**
+     * Initializes the activity. This method sets up the user interface for searching word definitions,
+     * displaying search results, and showing saved terms.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down,
+     *                           this Bundle contains the data it most recently supplied.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -204,7 +222,12 @@ public class DictionaryActivity extends AppCompatActivity {
         myllm.setStackFromEnd(true);
         binding.definitionsRecyclerView.setLayoutManager(myllm);
     }
-
+    /**
+     * Initializes the contents of the Activity's standard options menu.
+     *
+     * @param menu The options menu in which items are placed.
+     * @return You must return true for the menu to be displayed; if you return false, it will not be shown.
+     */
     @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -218,7 +241,12 @@ public class DictionaryActivity extends AppCompatActivity {
         }
         return true;
     }
-
+    /**
+     * This hook is called whenever an item in the options menu is selected.
+     *
+     * @param item The menu item that was selected.
+     * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -238,7 +266,9 @@ public class DictionaryActivity extends AppCompatActivity {
         }
         return true;
     }
-
+    /**
+     * Called when the activity is going into the background, but has not (yet) been killed.
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -247,7 +277,9 @@ public class DictionaryActivity extends AppCompatActivity {
         editor.putString("Term", binding.searchTermInput.getText().toString());
         editor.apply();
     }
-
+    /**
+     * ViewHolder class for displaying each definition in the RecyclerView.
+     */
     static class MyRowHolder extends RecyclerView.ViewHolder {
         TextView definitionText;
 
@@ -256,7 +288,9 @@ public class DictionaryActivity extends AppCompatActivity {
             definitionText = itemView.findViewById(R.id.definitionText);
         }
     }
-
+    /**
+     * ViewHolder class for displaying each saved term in the RecyclerView.
+     */
     static class MySavedTermRowHolder extends RecyclerView.ViewHolder {
         TextView savedTermText;
 

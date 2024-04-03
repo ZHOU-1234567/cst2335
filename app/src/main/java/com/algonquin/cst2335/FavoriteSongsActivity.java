@@ -22,11 +22,24 @@ import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * This activity displays a list of favorite songs saved by the user.
+ * It utilizes a Room database to retrieve and display the saved song information.
+ */
 public class FavoriteSongsActivity extends AppCompatActivity {
     private ActivityFavoriteSongsBinding binding;
     private SongDAO sDAO;
     private ArrayList<Song> songs;
     private RecyclerView.Adapter<FavoriteSongsActivity.MyRowHolder> myAdapter;
+
+    /**
+     * Initializes the activity, sets up the Room database and DAO for song retrieval,
+     * and configures the RecyclerView to display the list of favorite songs.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down, this Bundle contains the data it most
+     *                           recently supplied in onSaveInstanceState(Bundle). Otherwise, it is null.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +94,10 @@ public class FavoriteSongsActivity extends AppCompatActivity {
         llm.setStackFromEnd(false);
         binding.favoriteSongsRecyclerView.setLayoutManager(llm);
     }
-
+    /**
+     * Called when the activity starts interacting with the user.
+     * It refreshes the list of favorite songs from the database.
+     */
     @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onResume() {
@@ -94,10 +110,17 @@ public class FavoriteSongsActivity extends AppCompatActivity {
         songModel.songs.setValue(songs);
         myAdapter.notifyDataSetChanged();
     }
-
+    /**
+     * ViewHolder class for displaying each favorite song in the RecyclerView.
+     */
     static class MyRowHolder extends RecyclerView.ViewHolder {
         TextView songTextView;
 
+        /**
+         * Constructor for MyRowHolder.
+         *
+         * @param itemView The view of the RecyclerView item.
+         */
         public MyRowHolder(@NonNull View itemView) {
             super(itemView);
             songTextView = itemView.findViewById(R.id.songTextView);
