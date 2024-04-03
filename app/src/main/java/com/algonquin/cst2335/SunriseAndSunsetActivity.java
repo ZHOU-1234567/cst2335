@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
 /**
  * This activity displays sunrise and sunset information for given locations.
  */
@@ -72,6 +73,7 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
         // Add a request (in this example, called stringRequest) to your RequestQueue.
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
+
     /**
      * Called when the activity is created.
      * Initializes the UI components and sets up event listeners.
@@ -139,12 +141,14 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
                 LocationBinding binding = LocationBinding.inflate(getLayoutInflater());
                 return new MyRowHolder(binding.getRoot());
             }
+
             // Bind data to ViewHolder
             @Override
             public void onBindViewHolder(@NonNull MyRowHolder holder, int position) {
                 holder.latitudeText.setText(locations.get(position).getLatitude());
                 holder.longitudeText.setText(locations.get(position).getLongitude());
             }
+
             // Get total number of items in RecyclerView
             @Override
             public int getItemCount() {
@@ -156,8 +160,10 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
         llm.setStackFromEnd(true);
         binding.recyclerView.setLayoutManager(llm);
     }
+
     /**
      * Called to create options menu.
+     *
      * @param menu The options menu in which you place your items.
      * @return Returns true for the menu to be displayed; if you return false it will not be shown.
      */
@@ -174,8 +180,10 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
         }
         return true;
     }
+
     /**
      * Called when an item in the options menu is selected.
+     *
      * @param item The menu item that was selected.
      * @return Returns true to indicate that the event was handled, false otherwise.
      */
@@ -198,6 +206,7 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
         }
         return true;
     }
+
     /**
      * Called when the activity is paused.
      * Saves latitude and longitude inputs to SharedPreferences.
@@ -211,6 +220,17 @@ public class SunriseAndSunsetActivity extends AppCompatActivity {
         editor.putString("Longitude", binding.longitudeInput.getText().toString());
         editor.apply();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences prefs = getSharedPreferences("SunriseSunsetData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("Latitude", binding.latitudeInput.getText().toString());
+        editor.putString("Longitude", binding.longitudeInput.getText().toString());
+        editor.apply();
+    }
+
     /**
      * ViewHolder class for RecyclerView items.
      */
