@@ -17,9 +17,23 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Activity for displaying the details of a specific song.
+ * In this activity, users can view song details, and depending on the provided intents,
+ * they have the option to save or delete the song from their favorites.
+ */
 public class SongDetails extends AppCompatActivity {
     private SongDAO sDAO;
 
+    /**
+     * Initializes the activity. This method sets up the user interface for displaying song details.
+     * It also configures the save and delete functionality based on the provided intents.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           being previously shut down, this Bundle contains the data
+     *                           it most recently supplied in onSaveInstanceState(Bundle).
+     *                           Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

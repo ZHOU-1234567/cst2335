@@ -22,11 +22,26 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Activity for displaying saved term definitions from the database.
+ * Users can view a list of definitions they have saved and have options to delete them.
+ */
+
 public class SavedDefinitionsActivity extends AppCompatActivity {
     private ActivitySavedDefinitionsBinding binding;
     private ArrayList<TermDefinition> definitions;
     private RecyclerView.Adapter<SavedDefinitionsActivity.MyRowHolder> myAdapter;
     private TermDefinitionDAO dDAO;
+
+    /**
+     * Initializes the activity. This method sets up the user interface for displaying saved definitions
+     * and handles interactions such as deleting a saved definition.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           being previously shut down, this Bundle contains the data
+     *                           it most recently supplied in onSaveInstanceState(Bundle).
+     *                           Otherwise, it is null.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +91,17 @@ public class SavedDefinitionsActivity extends AppCompatActivity {
         llm.setStackFromEnd(true);
         binding.savedDefinitionsRecyclerView.setLayoutManager(llm);
     }
-
+    /**
+     * ViewHolder class for displaying each saved definition in the RecyclerView.
+     * It also handles click events to provide the option to delete a definition.
+     */
     class MyRowHolder extends RecyclerView.ViewHolder {
         TextView definitionText;
-
+        /**
+         * Constructor for MyRowHolder.
+         *
+         * @param itemView The view of the RecyclerView item.
+         */
         public MyRowHolder(@NonNull View itemView) {
             super(itemView);
 
